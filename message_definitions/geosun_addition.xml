@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<mavlink>
+  <version>3</version>
+  <enums>
+    <enum name="GS_SYS_STATUS_COMP" bitmask="true">
+      <description>These encode the components whose status is sent as part of the GS_ALL_STATUS message.</description>
+      <entry value="1" name="GS_SYS_STATUS_COMP_LIDAR">
+        <description>0x01 lidar</description>
+      </entry>
+      <entry value="2" name="GS_SYS_STATUS_COMP_CAMERA_COIN">
+        <description>0x02 visible light camera coin</description>
+      </entry>
+      <entry value="4" name="GS_SYS_STATUS_COMP_INERTIAL_NAVIGATION">
+        <description>0x04 inertial navigation data</description>
+      </entry>
+      <entry value="8" name="GS_SYS_STATUS_COMP_GNSS">
+        <description>0x08 GNSS communication</description>
+      </entry>
+      <entry value="16" name="GS_SYS_STATUS_COMP_SD_CARD">
+        <description>0x10 SD card</description>
+      </entry>
+    </enum>
+    <enum name="GS_SATELLITES_STATE">
+      <description>Geosun satellites state.</description>
+      <entry value="0" name="GS_SATELLITES_STATE_SEARCHING">
+        <description>searching</description>
+      </entry>
+      <entry value="1" name="GS_SATELLITES_STATE_LOCKED">
+        <description>locked</description>
+      </entry>
+    </enum>
+    <enum name="GS_IN_STATE">
+      <description>Geosun inertial navigation state.</description>
+      <entry value="0" name="GS_IN_STATE_STANDING">
+        <description>standing</description>
+      </entry>
+      <entry value="1" name="GS_IN_STATE_STAND_OVER">
+        <description>stand over</description>
+      </entry>
+    </enum>
+    <enum name="GS_LIDAR_STATE">
+      <description>Geosun lidar state.</description>
+      <entry value="0" name="GS_LIDAR_STATE_STANDBY">
+        <description>on standby</description>
+      </entry>
+      <entry value="1" name="GS_LIDAR_STATE_RECORDING">
+        <description>recording</description>
+      </entry>
+      <entry value="2" name="GS_LIDAR_STATE_EXCEPTION">
+        <description>state abnoraml,need to reboot</description>
+      </entry>
+    </enum>
+  </enums>
+  <messages>
+    <message id="200000" name="GS_ALL_STATUS">
+      <description>The status of all components in geosun lidar system.</description>
+      <field type="uint8_t" name="components_health" enum="GS_SYS_STATUS_COMP" display="bitmask" print_format="0x%01x">Bitmap showing health of components in system. Value of 0: not health. Value of 1: health.</field>
+      <field type="int8_t" name="satellites_lock_state" enum="GS_SATELLITES_STATE">Showing whether the satellites has been locked.</field>
+      <field type="int8_t" name="inertial_navigation_standing_state" enum="GS_IN_STATE">Showing whether the inertial navigation has been standed over.</field>
+      <field type="int8_t" name="lidar_work_state" enum="GS_LIDAR_STATE">Showing the work state of lidar.</field>
+      <field type="uint16_t" name="sd_card_free_capacity">Showing the free capacity in SD card.(unit:10MB).</field>
+      <field type="uint16_t" name="sd_card_total_capacity">Showing the total capacity in SD card.(unit:10MB).</field>
+      <field type="uint16_t" name="recorded_size">Showing the file size has been generated in current record.(unit:10MB).</field>
+      <field type="uint16_t" name="photo_count">Showing the count of photos has been taken in current record.</field>
+    </message>
+    <message id="200010" name="GS_GET_VERSION_NUMBER">
+      <description>Get software version number.</description>
+      <field type="uint8_t" name="reserved">Reserved.</field>
+    </message>
+    <message id="200011" name="GS_ACK_VERSION_NUMBER">
+      <description>Ack software version number.</description>
+      <field type="char[16]" name="version_number">Software version number.</field>
+    </message>
+    <message id="200012" name="GS_GET_LIDAR_SN">
+      <description>Get lidar SN.</description>
+      <field type="uint8_t" name="reserved">Reserved.</field>
+    </message>
+    <message id="200013" name="GS_ACK_LIDAR_SN">
+      <description>Ack lidar SN.</description>
+      <field type="char[12]" name="lidar_SN">lidar SN.</field>
+    </message>
+  </messages>
+</mavlink>

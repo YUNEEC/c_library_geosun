@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<mavlink>
+  <!-- MAVLink standard messages -->
+  <include>common.xml</include>
+  <!-- custom messages for geosun -->
+  <include>geosun_addition.xml</include>
+  <dialect>0</dialect>
+  <enums/>
+  <messages/>
+</mavlink>
