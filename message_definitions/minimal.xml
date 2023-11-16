@@ -484,7 +484,7 @@
       <entry value="87" name="MAV_COMP_ID_USER63">
         <description>Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network.</description>
       </entry>
-      <!-- <entry value="88" name="MAV_COMP_ID_USER64">
+      <entry value="88" name="MAV_COMP_ID_USER64">
         <description>Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network.</description>
       </entry>
       <entry value="89" name="MAV_COMP_ID_USER65">
@@ -519,7 +519,7 @@
       </entry>
       <entry value="99" name="MAV_COMP_ID_USER75">
         <description>Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network.</description>
-      </entry> -->
+      </entry>
       <entry value="100" name="MAV_COMP_ID_CAMERA">
         <description>Camera #1.</description>
       </entry>
