@@ -2222,6 +2222,17 @@
         <param index="6" label="Longitude">Longitude</param>
         <param index="7">Reserved</param>
       </entry>
+      <entry value="5005" name="MAV_CMD_NAV_FENCE_POLYGON_VERTEX_EXCLUSION_NO_FLY_ZONE">
+        <description>Fence vertex for an exclusion polygon (the polygon must not be self-intersecting). The vehicle must stay outside this area. Minimum of 3 vertices required.Specially used for no fly zone.
+        </description>
+        <param index="1">Polygon vertex count</param>
+        <param index="2">min_relative_alt</param>
+        <param index="3">max_relative_alt</param>
+        <param index="4">Reserved</param>
+        <param index="5">Latitude</param>
+        <param index="6">Longitude</param>
+        <param index="7">Reserved</param>
+      </entry>
       <!-- value 5010 reserved for MAV_CMD_SET_FENCE_BREACH_ACTION (see development.xml). -->
       <entry value="5100" name="MAV_CMD_NAV_RALLY_POINT" hasLocation="true" isDestination="false">
         <description>Rally point. You can have multiple rally points defined.

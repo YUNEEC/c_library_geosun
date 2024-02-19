@@ -790,6 +790,8 @@ typedef enum MAV_CMD
          |Radius.| Vehicle must be inside ALL inclusion zones in a single group, vehicle must be inside at least one group| Reserved| Reserved| Latitude| Longitude| Reserved|  */
    MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION=5004, /* Circular fence area. The vehicle must stay outside this area.
          |Radius.| Reserved| Reserved| Reserved| Latitude| Longitude| Reserved|  */
+   MAV_CMD_NAV_FENCE_POLYGON_VERTEX_EXCLUSION_NO_FLY_ZONE=5005, /* Fence vertex for an exclusion polygon (the polygon must not be self-intersecting). The vehicle must stay outside this area. Minimum of 3 vertices required.Specially used for no fly zone.
+         |Polygon vertex count| min_relative_alt| max_relative_alt| Reserved| Latitude| Longitude| Reserved|  */
    MAV_CMD_NAV_RALLY_POINT=5100, /* Rally point. You can have multiple rally points defined.
          |Reserved| Reserved| Reserved| Reserved| Latitude| Longitude| Altitude|  */
    MAV_CMD_UAVCAN_GET_NODE_INFO=5200, /* Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver can detect easily by checking whether every received UAVCAN_NODE_STATUS has a matching message UAVCAN_NODE_INFO received earlier; if not, this command should be sent again in order to request re-transmission of the node information messages. |Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)| Reserved (set to 0)|  */
